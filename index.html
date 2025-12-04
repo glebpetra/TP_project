@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аренда и обучение на лётном устройстве</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>Аренда и обучение на лётном устройстве</h1>
+                </div>
+                <nav class="navigation">
+                    <a href="#main" class="nav-link active">Главная</a>
+                    <a href="#schedule" class="nav-link">Расписание</a>
+                    <a href="#booking" class="nav-link">Бронирование</a>
+                    <a href="#admin" class="nav-link">Администратор</a>
+                    <a href="#login" class="nav-link nav-btn">Войти
+                        <span class="hint">открывает форму авторизации</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="main" class="page active">
+            <div class="container">
+                <div class="hero-section">
+                    <h2>Запись на тренировку и полёты</h2>
+                    <p class="subtitle">Выберите устройство, тип тренировки, место и удобное время</p>
+                    <div class="hero-buttons">
+                        <a href="#booking" class="btn btn-primary">
+                            Забронировать
+                            <span class="hint"> открывает форму бронирования</span>
+                        </a>
+                        <a href="#schedule" class="btn btn-secondary">
+                            Посмотреть расписание
+                            <span class="hint"> переключает на экран Расписание</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="content-grid">
+                    <div class="status-card">
+                        <h3>Статус абонемента</h3>
+                        <div class="status-info">
+                            <div class="info-row">
+                                <span class="label">Имя клиента:</span>
+                                <span class="value">Клиент</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Абонемент:</span>
+                                <span class="value status-active">активен</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="label">Скидка:</span>
+                                <span class="value discount">0%</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-freeze">
+                            Заморозить абонемент
+                            <span class="hint"> вызывает операцию заморозки</span>
+                        </button>
+                    </div>
+
+                    <div class="bookings-section">
+                        <div class="section-header">
+                            <h3>Ближайшие бронирования</h3>
+                            <div class="controls">
+                                <div class="search-box">
+                                    <input type="text" placeholder="Поиск (ФИО, телефон, устройство)">
+                                    <span class="hint small"> ищет в списке бронирований</span>
+                                </div>
+                                <button class="btn-control">
+                                    Фильтр
+                                    <span class="hint small"> открывает окно фильтрации</span>
+                                </button>
+                                <button class="btn-control">
+                                    Сортировать
+                                    <span class="hint small"> сортирует список по дате</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bookings-list">
+                            <div class="booking-item">
+                                <div class="booking-info">
+                                    <h4>Параплан, 22.11.2025 10:00</h4>
+                                    <p class="booking-client">Клиент 1</p>
+                                </div>
+                                <div class="booking-actions">
+                                    <button class="btn-small">
+                                        Просмотр
+                                        <span class="hint small"> открывает детали брони</span>
+                                    </button>
+                                    <button class="btn-small btn-cancel">
+                                        Отменить
+                                        <span class="hint small"> отменяет бронирование</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="booking-item">
+                                <div class="booking-info">
+                                    <h4>Самолёт, 23.11.2025 14:00</h4>
+                                    <p class="booking-client">Клиент 2</p>
+                                </div>
+                                <div class="booking-actions">
+                                    <button class="btn-small">
+                                        Просмотр
+                                        <span class="hint small"> открывает детали брони</span>
+                                    </button>
+                                    <button class="btn-small btn-cancel">
+                                        Отменить
+                                        <span class="hint small"> отменяет бронирование</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pagination">
+                            <button class="page-btn">←</button>
+                            <span>Страница 1 из 1</span>
+                            <button class="page-btn">→</button>
+                            <span class="hint"> кнопки навигации по страницам</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="login" class="page">
+            <div class="container form-container">
+                <h2>Авторизация в системе</h2>
+                <p class="form-description">Для входа в систему введите телефон и пароль.</p>
+                
+                <form class="auth-form" id="auth-form">
+                    <div class="form-group">
+                        <label for="login-phone">Телефон:</label>
+                        <input type="tel" id="login-phone" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Пароль:</label>
+                        <input type="password" id="login-password" placeholder="Введите пароль" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-role">Роль:</label>
+                        <select id="user-role">
+                            <option value="client">Клиент</option>
+                            <option value="instructor">Инструктор</option>
+                            <option value="admin">Администратор</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-primary" onclick="simulateAuthError()">
+                            Войти в систему
+                        </button>
+                        <a href="#main" class="btn btn-secondary">На главную</a>
+                    </div>
+                    
+                    <div class="form-links">
+                        <a href="#error" onclick="showError('register', 'Функция регистрации временно недоступна')">
+                            Зарегистрироваться
+                        </a>
+                        <span class="hint"> Link to registration form</span>
+                    </div>
+                </form>
+                
+                <div class="form-info">
+                    <p><strong>Примечание:</strong> Для демонстрации нажмите "Войти в систему" для имитации ошибки авторизации.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="page">
+            <div class="container form-container">
+                <h2>Создание бронирования</h2>
+                <p class="form-description">Заполните все поля для создания новой брони.</p>
+                
+                <form class="booking-form" id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="device-type">Тип устройства:</label>
+                            <select id="device-type" required>
+                                <option value="">Выберите устройство</option>
+                                <option value="parachute">Парашют</option>
+                                <option value="deltaplan">Дельтаплан</option>
+                                <option value="paraplan">Параплан</option>
+                                <option value="aeroplan">Аэроплан</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="training-type">Тип обучения:</label>
+                            <select id="training-type" required>
+                                <option value="">Выберите тип</option>
+                                <option value="individual">Индивидуальное</option>
+                                <option value="group">Групповое</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Площадка:</label>
+                        <select id="location" required>
+                            <option value="">Выберите площадку</option>
+                            <option value="north">Северная площадка</option>
+                            <option value="south">Южная площадка</option>
+                            <option value="west">Западная площадка</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="booking-date">Дата:</label>
+                            <input type="date" id="booking-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="booking-time">Время:</label>
+                            <input type="time" id="booking-time" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="people-count">Количество человек:</label>
+                            <input type="number" id="people-count" min="1" value="1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Оплата:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="payment" value="course"> Весь курс</label>
+                            <label><input type="radio" name="payment" value="month"> Месяц</label>
+                            <label><input type="radio" name="payment" value="day" checked> Один день</label>
+                            <label><input type="radio" name="payment" value="freeze"> Заморозить</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-primary" onclick="simulateBookingError()">
+                            Создать бронь
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearBookingForm()">
+                            Очистить форму
+                        </button>
+                        <a href="#main" class="btn btn-cancel">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="schedule" class="page">
+            <div class="container form-container">
+                <h2>Расписание и поиск</h2>
+                <p class="form-description">Поиск и фильтрация существующих бронирований.</p>
+                
+                <div class="search-controls">
+                    <div class="search-box">
+                        <input type="text" placeholder="Поиск по клиенту, устройству...">
+                        <button class="btn btn-primary">Найти</button>
+                        <span class="hint small"> выполняет поиск в базе данных</span>
+                    </div>
+                    
+                    <div class="filter-controls">
+                        <button class="btn-control">Фильтр по дате</button>
+                        <button class="btn-control">Фильтр по типу</button>
+                        <button class="btn-control">Сортировать</button>
+                        <span class="hint small"> кнопки фильтрации данных</span>
+                    </div>
+                </div>
+                
+                <div class="results-table">
+                    <div class="table-header">
+                        <div class="table-cell">Клиент</div>
+                        <div class="table-cell">Устройство</div>
+                        <div class="table-cell">Дата/Время</div>
+                        <div class="table-cell">Статус</div>
+                        <div class="table-cell">Действия</div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">Клиент 1</div>
+                        <div class="table-cell">Параплан</div>
+                        <div class="table-cell">22.11.2025 10:00</div>
+                        <div class="table-cell"><span class="status-confirmed">Подтверждено</span></div>
+                        <div class="table-cell">
+                            <button class="btn-small">Просмотр</button>
+                            <button class="btn-small btn-cancel">Отменить</button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell">Клиент 2</div>
+                        <div class="table-cell">Самолёт</div>
+                        <div class="table-cell">23.11.2025 14:00</div>
+                        <div class="table-cell"><span class="status-pending">Ожидает</span></div>
+                        <div class="table-cell">
+                            <button class="btn-small">Просмотр</button>
+                            <button class="btn-small btn-cancel">Отменить</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-buttons">
+                    <a href="#main" class="btn btn-secondary">На главную</a>
+                    <span class="hint"> возврат на главный экран</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="page">
+            <div class="container form-container">
+                <h2>Панель администратора</h2>
+                <p class="form-description">Управление пользователями и назначение скидок.</p>
+                
+                <div class="admin-tabs">
+                    <div class="tabs">
+                        <button class="tab active">Пользователи</button>
+                        <button class="tab">Скидки</button>
+                    </div>
+                    
+                    <div class="tab-content active">
+                        <div class="admin-controls">
+                            <button class="btn btn-primary">Добавить пользователя</button>
+                            <div class="admin-search">
+                                <input type="text" placeholder="Поиск пользователя...">
+                                <button class="btn btn-secondary">Найти</button>
+                            </div>
+                        </div>
+                        
+                        <div class="admin-table">
+                            <div class="table-row header">
+                                <div class="table-cell">ФИО</div>
+                                <div class="table-cell">Телефон</div>
+                                <div class="table-cell">Роль</div>
+                                <div class="table-cell">Действия</div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">Клиент</div>
+                                <div class="table-cell">+375 (29) 111-11-11</div>
+                                <div class="table-cell">Клиент</div>
+                                <div class="table-cell">
+                                    <button class="btn-small">Изменить</button>
+                                    <button class="btn-small btn-cancel">Удалить</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="discount-section">
+                            <h3>Назначение скидки</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="discount-type">Тип скидки:</label>
+                                    <select id="discount-type">
+                                        <option value="vip">VIP-клиентам</option>
+                                        <option value="regular">Постоянным клиентам</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="discount-value">Размер:</label>
+                                    <input type="number" id="discount-value" min="1" max="50" value="10">%
+                                </div>
+                            </div>
+                            <button class="btn btn-primary">Назначить скидку</button>
+                            <span class="hint small"> применяет скидку к выбранным пользователям</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-buttons">
+                    <a href="#main" class="btn btn-secondary">На главную</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="error" class="page">
+            <div class="container error-container">
+                <div class="error-icon">!</div>
+                <h2>Ошибка операции</h2>
+                
+                <div class="error-message" id="error-message">
+                    <p>Произошла ошибка при выполнении операции.</p>
+                    <p>Пожалуйста, проверьте введённые данные и повторите попытку.</p>
+                </div>
+                
+                <div class="error-details" id="error-details">
+                    <p><strong>Детали ошибки:</strong></p>
+                    <ul>
+                        <li>Некорректные или неполные данные</li>
+                        <li>Проблема с подключением к серверу</li>
+                        <li>Ошибка валидации введённых данных</li>
+                    </ul>
+                </div>
+                
+                <div class="error-suggestion" id="error-suggestion">
+                    <p><strong>Рекомендации:</strong></p>
+                    <ul>
+                        <li>Проверьте правильность заполнения всех полей</li>
+                        <li>Убедитесь, что выбранная дата и время доступны</li>
+                        <li>Попробуйте повторить операцию через несколько минут</li>
+                    </ul>
+                </div>
+                
+                <div class="error-actions">
+                    <button class="btn btn-primary" onclick="retryOperation()">
+                        Повторить попытку
+                        <span class="hint small"> возвращает к предыдущей форме</span>
+                    </button>
+                    <a href="#main" class="btn btn-secondary">На главную</a>
+                    <a href="#" class="btn btn-cancel" onclick="contactSupport()">
+                        Связаться с поддержкой
+                    </a>
+                </div>
+                
+                <div class="error-code">
+                    <p>Код ошибки: <span id="error-code">ERR-001</span></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 АИС Парапланерного Центра — учебный макет</p>
+                <p>Контакты: +375 (249) 123-45-67 | support@paracenter.by</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    let lastPage = 'main';
+    let errorType = 'general';
+    
+    function showPage(pageId) {
+        if (pageId !== 'error') {
+            lastPage = pageId;
+        }
+        
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add('active');
+        }
+        
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${pageId}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('.nav-link, a[href^="#"]:not([href="#"])');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                if (targetId) {
+                    showPage(targetId);
+                    window.history.pushState(null, null, `#${targetId}`);
+                }
+            });
+        });
+        
+        window.addEventListener('popstate', function() {
+            const hash = window.location.hash.substring(1) || 'main';
+            showPage(hash);
+        });
+       
+        const initialHash = window.location.hash.substring(1) || 'main';
+        showPage(initialHash);
+    });
+    
+    function showError(type, message) {
+        errorType = type;
+        showPage('error');
+        
+        setTimeout(() => {
+            const errorMessage = document.getElementById('error-message');
+            const errorDetails = document.getElementById('error-details');
+            const errorSuggestion = document.getElementById('error-suggestion');
+            const errorCode = document.getElementById('error-code');
+            
+            if (errorMessage && errorDetails && errorSuggestion && errorCode) {
+                switch(type) {
+                    case 'auth':
+                        errorMessage.innerHTML = `
+                            <p><strong>Ошибка авторизации</strong></p>
+                            <p>Не удалось войти в систему. Проверьте правильность введённых данных.</p>
+                            <p>Возможные причины:</p>
+                        `;
+                        errorDetails.innerHTML = `
+                            <p><strong>Детали:</strong></p>
+                            <ul>
+                                <li>Неверный номер телефона или пароль</li>
+                                <li>Учётная запись заблокирована</li>
+                                <li>Превышено количество попыток входа</li>
+                            </ul>
+                        `;
+                        errorSuggestion.innerHTML = `
+                            <p><strong>Что делать:</strong></p>
+                            <ul>
+                                <li>Проверьте правильность ввода телефона и пароля</li>
+                                <li>Используйте функцию восстановления пароля</li>
+                                <li>Обратитесь к администратору системы</li>
+                            </ul>
+                        `;
+                        errorCode.textContent = 'ERR-AUTH-001';
+                        break;
+                        
+                    case 'booking':
+                        errorMessage.innerHTML = `
+                            <p><strong>Ошибка бронирования</strong></p>
+                            <p>Не удалось создать бронирование. Проверьте введённые данные.</p>
+                            <p>Возможные причины:</p>
+                        `;
+                        errorDetails.innerHTML = `
+                            <p><strong>Детали:</strong></p>
+                            <ul>
+                                <li>Не все обязательные поля заполнены</li>
+                                <li>Выбранное время уже занято</li>
+                                <li>Некорректная дата или время</li>
+                            </ul>
+                        `;
+                        errorSuggestion.innerHTML = `
+                            <p><strong>Что делать:</strong></p>
+                            <ul>
+                                <li>Заполните все обязательные поля формы</li>
+                                <li>Выберите другое время или дату</li>
+                                <li>Проверьте доступность выбранного инструктора</li>
+                            </ul>
+                        `;
+                        errorCode.textContent = 'ERR-BOOK-001';
+                        break;
+                        
+                    case 'register':
+                        errorMessage.innerHTML = `
+                            <p><strong>Ошибка регистрации</strong></p>
+                            <p>${message || 'Функция временно недоступна'}</p>
+                        `;
+                        errorCode.textContent = 'ERR-REG-001';
+                        break;
+                        
+                    default:
+                        errorMessage.innerHTML = `
+                            <p><strong>Общая ошибка</strong></p>
+                            <p>Произошла непредвиденная ошибка.</p>
+                        `;
+                        errorCode.textContent = 'ERR-GEN-001';
+                }
+            }
+        }, 50);
+    }
+function simulateAuthError() {
+        const phone = document.getElementById('login-phone');
+        const password = document.getElementById('login-password');
+        
+        if (!phone || !password || !phone.value || !password.value) {
+            showError('auth', 'Заполните все обязательные поля');
+        } else {
+            showError('auth', 'Неверные учётные данные');
+        }
+    }
+
+ function retryOperation() {
+        showPage(lastPage);
+    }
+    
+    </script>
+</body>
+</html>
